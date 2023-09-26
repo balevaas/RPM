@@ -1,4 +1,4 @@
-﻿namespace Lab3
+﻿namespace AutoBaza
 {
     internal class Program
     {

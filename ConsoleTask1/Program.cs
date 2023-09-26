@@ -7,15 +7,18 @@
         static void Main(string[] args)
         {
             // Вызов методов для проверки работы различных классов
-            Constructor();
+            Program p = new Program();
+            p.Constructor();
             Console.WriteLine();
-            Destructor();
+            p.Destructor();
+            Console.WriteLine();
+            p.Static();
         }
 
         /// <summary>
         /// Метод для тестра работы класса ConstructorClass
         /// </summary>
-        static void Constructor()
+        void Constructor()
         {
             // Создание объектов
             // Вызывается конструктор по умолчанию:
@@ -53,12 +56,41 @@
         /// <summary>
         /// Метод для теста работы класса DestructorClass
         /// </summary>
-        static void Destructor()
+        void Destructor()
         {
             DestructorClass destructorClass1 = new DestructorClass("Первый");
-            new DestructorClass("Второй");
+            new DestructorClass("Второй"); // анонимный экземпляр
             destructorClass1 = new DestructorClass("Третий");
-            
+            Maker("Четвертый"); // анонимный экземпляр
+            destructorClass1 = new DestructorClass("Пятый");            
         }
+
+        /// <summary>
+        /// Метод для создания анонимного экземпляра класса
+        /// </summary>
+        /// <param name="txt"></param>
+        void Maker(string txt)
+        {
+            new DestructorClass(txt);
+        }
+
+        /// <summary>
+        /// Метод для теста работы класса StaticClass
+        /// </summary>
+        void Static()
+        {
+            StaticClass.Show();
+            StaticClass.code = 200;
+            StaticClass.Show();
+
+            double z = 1;
+            Console.WriteLine("exp({0}) = {1}", z, StaticClass.exp(z));
+            Console.WriteLine("Контрольное значение: {0}", Math.Exp(z));
+            z = StaticClass.pi/4;
+            Console.WriteLine("sin({0}) = {1}", z, StaticClass.Sin(z));
+            Console.WriteLine("Контрольное значение: {0}", Math.Sin(z));
+        }
+
+
     }
 }
