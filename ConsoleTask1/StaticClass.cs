@@ -9,15 +9,26 @@ namespace ConsoleTask1
     public class StaticClass
     {
         public static int code = 100; // Статическое поле
-        public static void Show() // Статический метод
+
+        /// <summary>
+        /// Статический метод вывода
+        /// </summary>
+        public static void Show()
         {
             Console.WriteLine("Статическое поле: " + code);
         }
 
+        // Постоянная переменная pi (константа) 
         public const double pi = 3.14592;
 
+        // Статичная переменная n
         private static int n = 100;
 
+        /// <summary>
+        /// Статичный метод для вычисления экспоненты
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         public static double exp(double x)
         {
             double s = 0, q = 1;
@@ -29,6 +40,11 @@ namespace ConsoleTask1
             return s;
         }
 
+        /// <summary>
+        /// Статичный метод для вычисления синуса
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         public static double Sin(double x)
         {
             double s = 0, q = x;

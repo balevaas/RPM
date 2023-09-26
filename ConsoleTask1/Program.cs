@@ -13,6 +13,8 @@
             p.Destructor();
             Console.WriteLine();
             p.Static();
+            Console.WriteLine();
+            p.This();
         }
 
         /// <summary>
@@ -79,18 +81,29 @@
         /// </summary>
         void Static()
         {
-            StaticClass.Show();
-            StaticClass.code = 200;
-            StaticClass.Show();
+            // Отличие статичных методов от обычных в том, что не нужно создавать экземпляр класса
+            // и через него обращаться к методам.
+            // Достаточно, просто написать название класса и через . вызвать нужный метод
+            StaticClass.Show();     // вызов статичного метода
+            StaticClass.code = 200; // переприсвоение значения в статичном поле
+            StaticClass.Show();     // снова вызов метода
+            Console.WriteLine();
 
-            double z = 1;
-            Console.WriteLine("exp({0}) = {1}", z, StaticClass.exp(z));
-            Console.WriteLine("Контрольное значение: {0}", Math.Exp(z));
-            z = StaticClass.pi/4;
-            Console.WriteLine("sin({0}) = {1}", z, StaticClass.Sin(z));
-            Console.WriteLine("Контрольное значение: {0}", Math.Sin(z));
+            double z = 1; // объявляем переменную 
+            Console.WriteLine("exp({0}) = {1}", z, StaticClass.exp(z));     // при выводе на экран, вызываем статичный метод класса для вычисления экспоненты
+            Console.WriteLine("Контрольное значение: {0}", Math.Exp(z));    // проверяем работу метода, с помощью встроенного класса Math 
+            z = StaticClass.pi/4;                                           // присваиваем переменной Z, значение из класса (константу делим на 4) 
+            Console.WriteLine("sin({0}) = {1}", z, StaticClass.Sin(z));     // вызываем метод вычисления синуса из класса
+            Console.WriteLine("Контрольное значение: {0}", Math.Sin(z));    // проверяем работу метода, с помощью встроенного класса Math
         }
 
-
+        void This()
+        {
+            ThisClass thisClass1 = new ThisClass(100);
+            Console.WriteLine();
+            ThisClass thisClass2 = new ThisClass(200, 300);
+            Console.WriteLine();
+            ThisClass thisClass3 = new ThisClass();
+        }
     }
 }
