@@ -8,8 +8,10 @@ namespace ConsoleTask1
 {
     internal class ThisClass
     {
+        // Открытые переменные 
         public int alpha;
         public int bravo;
+
 
         public ThisClass(int a)
         {

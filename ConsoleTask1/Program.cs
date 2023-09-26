@@ -99,11 +99,11 @@
 
         void This()
         {
-            ThisClass thisClass1 = new ThisClass(100);
+            ThisClass thisClass1 = new ThisClass(100);      // Первый экземпляр класса
             Console.WriteLine();
-            ThisClass thisClass2 = new ThisClass(200, 300);
-            Console.WriteLine();
-            ThisClass thisClass3 = new ThisClass();
+            ThisClass thisClass2 = new ThisClass(200, 300); // Второй экземпляр класса
+            Console.WriteLine();    
+            ThisClass thisClass3 = new ThisClass();         // Третий экземпляр класса
         }
     }
 }
